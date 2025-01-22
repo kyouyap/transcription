@@ -1,0 +1,66 @@
+[project]
+name = "transcription"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12.0"
+dependencies = [
+    "platformdirs>=4.3.6",
+    "pyannote-audio>=3.3.2",
+    "python-dotenv>=1.0.1",
+    "pywhispercpp",
+    "streamlit>=1.41.1",
+    "torch>=2.5.1",
+    "torchaudio>=2.5.1",
+    "torchvision>=0.20.1",
+    "yarl==1.13.1",
+]
+
+
+
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+select=["ALL"]
+ignore = ["RUF001","RUF003","PLR2004","E501","D400","D415","RUF002","ANN201","ANN202"]
+
+[tool.ruff.lint.per-file-ignores]
+"app/backend/test/*" = ["S101","SLF001","ERA001","ARG001"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+disallow_any_unimported = true
+disallow_any_expr = true
+disallow_any_decorated = true
+disallow_any_explicit = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+no_implicit_optional = true
+strict_equality = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unreachable = true
+warn_no_return = true
+no_implicit_reexport = true
+warn_unused_configs = true
+allow_redefinition = false
+ignore_missing_imports = true
+disable_error_code = ["misc","no-any-unimported","call-overload","no-untyped-def","unreachable","no-untyped-call"]
+
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
+default = true
+
+[tool.uv.sources]
+pywhispercpp = { git = "https://github.com/absadiki/pywhispercpp" }
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.1",
+    "pre-commit>=4.1.0",
+    "ruff>=0.9.2",
+]

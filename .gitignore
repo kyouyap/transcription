@@ -1,0 +1,16 @@
+# お決まりセット
+__pycache__/
+.DS_Store
+.env
+.venv/
+
+# ディレクトリ配下のファイルを全て除外
+/assets/media/*
+/assets/texts/*
+
+# txtファイルは例外
+!/assets/media/*.txt
+!/assets/texts/*.txt
+
+.streamlit/secrets.toml
+.github/copilot-instructions.md
